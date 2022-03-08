@@ -6,7 +6,7 @@
 
 https://github.com/ErikZhou/YouPy
 
-# 2. MP4格式转MP3格式
+# 2. MP4格式转MP3格式 (支持mkv格式）
 
 print('python mp4-to-mp3.py filename')
 
