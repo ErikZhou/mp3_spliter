@@ -18,6 +18,8 @@ def to_sh(filename):
 
 
 mylist = [f for f in glob.glob("*.mp4")]
+if len(mylist) < 1:
+    mylist = [f for f in glob.glob("*.mkv")]
 #print(mylist)
 
 for c in mylist:
