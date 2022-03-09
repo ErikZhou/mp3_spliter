@@ -29,12 +29,19 @@ for c in mylist:
     cmd = 'python asplit.py ' + mp3file +' 3 0.1'
     os.system(cmd)
 
-    shfile = mp3file + '-out.sh'
+    shfile = mp3file
+    print('os',os.name)
+    if os.name == 'nt':
+        shfile = mp3file + '-out.bat'
+        cmd = '' + shfile
+        # Windows
+    else:
+        shfile = mp3file + '-out.sh'
+        cmd = 'chmod +x ' + shfile
+        os.system(cmd)
+        cmd = './' + shfile
+        # other (unix)
 
-    cmd = 'chmod +x ' + shfile
-    os.system(cmd)
-
-    cmd = './' + shfile
     os.system(cmd)
 
 

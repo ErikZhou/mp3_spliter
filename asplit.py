@@ -1,5 +1,6 @@
 import subprocess as sp
 import sys
+import os
 import numpy
 
 FFMPEG_BIN = "ffmpeg"
@@ -11,7 +12,12 @@ src = sys.argv[1]
 dur = float(sys.argv[2])
 thr = int(float(sys.argv[3]) * 65535)
 
-f = open('%s-out.sh' % src, 'w+')
+if os.name == 'nt':
+    # Windows
+    f = open('%s-out.bat' % src, 'w+')
+else:
+    # other (unix)
+    f = open('%s-out.sh' % src, 'w+')
 
 tmprate = 22050
 len2 = dur * tmprate
